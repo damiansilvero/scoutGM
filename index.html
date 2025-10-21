@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scout GM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Pantalla de acceso -->
+  <div id="overlay">
+    <h1>Scout GM</h1>
+    <p>Acceso restringido — ingrese la clave</p>
+    <input type="password" id="claveInput" placeholder="Contraseña" />
+    <button id="btnEntrar">Entrar</button>
+    <p id="mensaje" style="color:red;display:none;">Clave incorrecta</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" data-tab="libres">⚽ MLS Libres</div>
+    <div class="tab" data-tab="sub22">🔰 SUB 22</div>
+    <div class="tab" data-tab="prestamo">🔄 Préstamo</div>
+    <div class="tab" data-tab="compra">💰 Compra</div>
+    <div class="tab" data-tab="jun26">🗓️ Fin 06/26</div>
+    <div class="tab" data-tab="dic26">📅 Fin 12/26</div>
+    <div class="tab" data-tab="dic25">📆 Fin 12/25</div>
+  </div>
+
+  <div class="main">
+    <div id="canchaContainer" class="cancha"></div>
+    <div class="lateral" id="jugadoresLateral"></div>
+  </div>
+
+  <button id="resetBtn">♻️ Reiniciar formación</button>
+
+  <!-- Formulario para agregar jugadores -->
+  <section id="formulario">
+    <h2>Agregar jugador nuevo</h2>
+    <form id="addForm">
+      <input type="text" id="nombre" placeholder="Nombre" required />
+      <input type="text" id="club" placeholder="Club" required />
+      <input type="text" id="escudo" placeholder="Archivo escudo (ej. orlando_city_logo.png)" required />
+      <select id="tab" required>
+        <option value="libres">MLS Libres</option>
+        <option value="sub22">SUB 22</option>
+        <option value="prestamo">Préstamo</option>
+        <option value="compra">Compra</option>
+        <option value="jun26">Fin 06/26</option>
+        <option value="dic26">Fin 12/26</option>
+        <option value="dic25">Fin 12/25</option>
+      </select>
+      <button type="submit">Agregar</button>
+    </form>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
