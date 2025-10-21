@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scout GM</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Pantalla de acceso -->
   <div id="overlay">
     <h1>Scout GM</h1>
     <p>Acceso restringido — ingrese la clave</p>
-    <input type="password" id="claveInput" placeholder="Contraseña" />
+    <input type="password" id="claveInput" placeholder="Contraseña">
     <button id="btnEntrar">Entrar</button>
-    <p id="mensaje" style="color:red;display:none;">Clave incorrecta</p>
+    <p id="mensaje" class="error">Clave incorrecta</p>
   </div>
 
-  <!-- Tabs -->
+  <!-- Pestañas -->
   <div class="tabs">
     <div class="tab active" data-tab="libres">⚽ MLS Libres</div>
     <div class="tab" data-tab="sub22">🔰 SUB 22</div>
@@ -28,21 +28,23 @@
     <div class="tab" data-tab="dic25">📆 Fin 12/25</div>
   </div>
 
+  <!-- Cancha y lateral -->
   <div class="main">
     <div id="canchaContainer" class="cancha"></div>
     <div class="lateral" id="jugadoresLateral"></div>
   </div>
 
+  <!-- Botón de reinicio -->
   <button id="resetBtn">♻️ Reiniciar formación</button>
 
-  <!-- Formulario para agregar jugadores -->
-  <section id="formulario">
+  <!-- Formulario para agregar jugador -->
+  <section id="formSection">
     <h2>Agregar jugador nuevo</h2>
-    <form id="addForm">
-      <input type="text" id="nombre" placeholder="Nombre" required />
-      <input type="text" id="club" placeholder="Club" required />
-      <input type="text" id="escudo" placeholder="Archivo escudo (ej. orlando_city_logo.png)" required />
-      <select id="tab" required>
+    <form id="addPlayerForm">
+      <input type="text" id="nombre" placeholder="Nombre" required>
+      <input type="text" id="club" placeholder="Club" required>
+      <input type="text" id="escudo" placeholder="Nombre del archivo de escudo (p.ej. orlando_city_logo.png)" required>
+      <select id="tab">
         <option value="libres">MLS Libres</option>
         <option value="sub22">SUB 22</option>
         <option value="prestamo">Préstamo</option>
@@ -51,11 +53,52 @@
         <option value="dic26">Fin 12/26</option>
         <option value="dic25">Fin 12/25</option>
       </select>
+      <input type="text" id="posicion" placeholder="Posición (ej. MC, DC, LI)" required>
       <button type="submit">Agregar</button>
     </form>
+    <p class="note">Se descargará automáticamente un CSV actualizado con todos los jugadores.</p>
+
+    <!-- Botón para abrir la guía -->
+    <button id="guiaBtn" class="secondary-btn">📋 Ver guía de posiciones</button>
   </section>
 
+  <!-- Modal de guía de posiciones -->
+  <div id="guiaModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Guía de posiciones — Scout GM</h2>
+      <table class="tabla-posiciones">
+        <tr><th>Código</th><th>Rol</th><th>Zona en la cancha</th></tr>
+        <tr><td>ARQ</td><td>Arquero / Portero</td><td>Arco inferior</td></tr>
+        <tr><td>LI</td><td>Lateral Izquierdo</td><td>Banda izquierda baja</td></tr>
+        <tr><td>LII</td><td>Lateral Interno Izquierdo</td><td>Interior izquierda</td></tr>
+        <tr><td>CDF</td><td>Central Izquierdo</td><td>Centro defensa izquierda</td></tr>
+        <tr><td>CDD</td><td>Central Derecho</td><td>Centro defensa derecha</td></tr>
+        <tr><td>LDI</td><td>Lateral Interno Derecho</td><td>Interior derecha</td></tr>
+        <tr><td>LD</td><td>Lateral Derecho</td><td>Banda derecha baja</td></tr>
+        <tr><td>MCD</td><td>Mediocentro Defensivo</td><td>Frente defensiva</td></tr>
+        <tr><td>MC</td><td>Mediocentro</td><td>Eje del campo</td></tr>
+        <tr><td>MCI</td><td>Mediocentro Izquierdo</td><td>Interior izquierda</td></tr>
+        <tr><td>ED</td><td>Extremo Derecho</td><td>Ataque derecha</td></tr>
+        <tr><td>EI</td><td>Extremo Izquierdo</td><td>Ataque izquierda</td></tr>
+        <tr><td>DC</td><td>Delantero Centro</td><td>Área rival</td></tr>
+      </table>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <!-- Script del modal -->
+  <script>
+    const modal = document.getElementById("guiaModal");
+    const btn = document.getElementById("guiaBtn");
+    const span = document.querySelector(".close");
+
+    btn.onclick = () => { modal.style.display = "block"; };
+    span.onclick = () => { modal.style.display = "none"; };
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>

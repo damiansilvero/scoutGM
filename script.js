@@ -40,22 +40,55 @@ function cargarJugadores(){
   });
 }
 
-function filtrarJugadores(tab){
-  const cont = document.getElementById("jugadoresLateral");
-  cont.innerHTML="";
-  todosJugadores.filter(j=>j.tab===tab).forEach(j=>{
-    const div=document.createElement("div");
-    div.className="jugador";
-    div.draggable=true;
-    div.dataset.nombre=j.nombre;
-    div.innerHTML = `<img src="escudos/${j.escudo}" alt="${j.club}"
-			onerror="this.onerror=null; this.src='escudos/default_logo.png';"><span>${j.nombre}</span>
-		    `;
+// Coordenadas predeterminadas por posición
+const posicionesPredeterminadas = {
+  "ARQ": { x: 160, y: 550 },
+  "LI": { x: 50,  y: 420 },
+  "LII": { x: 100, y: 420 },
+  "CDF": { x: 130, y: 360 },
+  "CDD": { x: 200, y: 360 },
+  "LDI": { x: 250, y: 420 },
+  "LD": { x: 280, y: 420 },
+  "MCD": { x: 180, y: 280 },
+  "MC": { x: 160, y: 250 },
+  "MCI": { x: 140, y: 280 },
+  "ED": { x: 230, y: 160 },
+  "EI": { x: 90,  y: 160 },
+  "DC": { x: 160, y: 120 }
+};
 
+function filtrarJugadores(tab) {
+  const cont = document.getElementById("jugadoresLateral");
+  const cancha = document.getElementById("canchaContainer");
+  cont.innerHTML = "";
+  cancha.innerHTML = "";
+
+  todosJugadores.filter(j => j.tab === tab).forEach(j => {
+    const div = document.createElement("div");
+    div.className = "jugador";
+    div.draggable = true;
+    div.dataset.nombre = j.nombre;
+    div.innerHTML = `
+      <img src="escudos/${j.escudo}" alt="${j.club}"
+           onerror="this.onerror=null;this.src='escudos/default_logo.png';">
+      <span>${j.nombre}</span>
+    `;
     cont.appendChild(div);
+
+    // Si el jugador tiene una posición predefinida, ubicarlo automáticamente
+    if (j.posicion && posicionesPredeterminadas[j.posicion]) {
+      const pos = posicionesPredeterminadas[j.posicion];
+      const jugadorClone = div.cloneNode(true);
+      jugadorClone.style.position = "absolute";
+      jugadorClone.style.left = pos.x + "px";
+      jugadorClone.style.top = pos.y + "px";
+      cancha.appendChild(jugadorClone);
+    }
   });
+
   activarDrag();
 }
+
 
 // --------- Drag & Drop sobre cancha ----------
 function activarDrag(){

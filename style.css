@@ -145,3 +145,57 @@ body {
   cursor: pointer;
 }
 #addForm button:hover { background: #1a701a; }
+
+/* Modal Guía de Posiciones */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 15;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fefefe;
+  color: #000;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+}
+.close:hover { color: #000; }
+.tabla-posiciones {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.tabla-posiciones th, .tabla-posiciones td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+.tabla-posiciones th {
+  background: #222;
+  color: #fff;
+}
+.secondary-btn {
+  margin-top: 10px;
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.secondary-btn:hover { background: #666; }
+
