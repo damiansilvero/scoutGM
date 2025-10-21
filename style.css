@@ -199,3 +199,12 @@ body {
 }
 .secondary-btn:hover { background: #666; }
 
+#addPlayerForm select {
+  width: 90%;
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+}
+

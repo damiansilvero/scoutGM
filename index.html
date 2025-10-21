@@ -53,7 +53,31 @@
         <option value="dic26">Fin 12/26</option>
         <option value="dic25">Fin 12/25</option>
       </select>
-      <input type="text" id="posicion" placeholder="Posición (ej. MC, DC, LI)" required>
+      <select id="posicion" required>
+  	<option value="">Seleccionar posición...</option>
+ 	 <optgroup label="Arquero">
+   	 <option value="ARQ">ARQ — Arquero / Portero</option>
+ 	 </optgroup>
+ 	 <optgroup label="Defensas">
+ 	   <option value="LI">LI — Lateral Izquierdo</option>
+ 	   <option value="LII">LII — Lateral Interno Izquierdo</option>
+ 	   <option value="CDF">CDF — Central Izquierdo</option>
+ 	   <option value="CDD">CDD — Central Derecho</option>
+ 	   <option value="LDI">LDI — Lateral Interno Derecho</option>
+ 	   <option value="LD">LD — Lateral Derecho</option>
+ 	 </optgroup>
+	  <optgroup label="Mediocampistas">
+	    <option value="MCD">MCD — Volante Central Defensivo</option>
+	    <option value="MC">MC — Mediocentro Mixto</option>
+ 	   <option value="MCI">MCI — Volante Interno Izquierdo</option>
+	  </optgroup>
+	  <optgroup label="Delanteros">
+	    <option value="EI">EI — Extremo Izquierdo</option>
+ 	   <option value="ED">ED — Extremo Derecho</option>
+	    <option value="DC">DC — Delantero Centro</option>
+	  </optgroup>
+	</select>
+
       <button type="submit">Agregar</button>
     </form>
     <p class="note">Se descargará automáticamente un CSV actualizado con todos los jugadores.</p>

@@ -6,7 +6,7 @@ async function sha256(text){
 }
 
 // ⚠️ Inserta aquí tu hash SHA-256 de "scoutatl26"
-const HASH_PERMITIDO = "b12d8be2d6bcbcada837be85a3a5b3f8728a5b7a85a0880545ab43a89e247d4a";
+const HASH_PERMITIDO = "f653dea3110d499b1993b00eeafdd39983aa74e7a5951a03f81d3ef810abe506";
 
 const overlay = document.getElementById("overlay");
 const msg = document.getElementById("mensaje");
@@ -148,7 +148,8 @@ document.getElementById("addPlayerForm").onsubmit=function(e){
     nombre:nombre.value.trim(),
     club:club.value.trim(),
     escudo:escudo.value.trim(),
-    tab:tab.value
+    tab:tab.value,
+    posicion: posicion.value.trim().toUpperCase()
   };
   todosJugadores.push(nuevo);
   const csv=Papa.unparse(todosJugadores);
