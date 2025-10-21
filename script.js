@@ -8,7 +8,7 @@ async function sha256(text) {
 }
 
 // 👇 Reemplazá esta cadena con el hash SHA-256 real de tu clave scoutatl26
-const HASH_PERMITIDO = "PON_AQUI_TU_HASH";
+const HASH_PERMITIDO = "b12d8be2d6bcbcada837be85a3a5b3f8728a5b7a85a0880545ab43a89e247d4a";
 
 document.getElementById("btnEntrar").addEventListener("click", async () => {
   const clave = document.getElementById("claveInput").value.trim();
