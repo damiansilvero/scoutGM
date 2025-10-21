@@ -8,6 +8,25 @@ async function sha256(text){
 // ⚠️ Inserta aquí tu hash SHA-256 de "scoutatl26"
 const HASH_PERMITIDO = "f653dea3110d499b1993b00eeafdd39983aa74e7a5951a03f81d3ef810abe506";
 
+// 📍 Coordenadas predeterminadas para cada posición (vertical: atacan de abajo hacia arriba)
+const posicionesPredef = {
+  ARQ: { left: 250, top: 680 },
+
+  LI:  { left: 80,  top: 550 },
+  CDF: { left: 180, top: 530 },
+  CDD: { left: 320, top: 530 },
+  LD:  { left: 420, top: 550 },
+
+  MCD: { left: 250, top: 440 },
+  MC:  { left: 250, top: 400 },
+  MCI: { left: 180, top: 400 },
+  MCI2:{ left: 320, top: 400 },
+
+  EI:  { left: 100, top: 280 },
+  ED:  { left: 400, top: 280 },
+  DC:  { left: 250, top: 200 }
+};
+
 const overlay = document.getElementById("overlay");
 const msg = document.getElementById("mensaje");
 document.getElementById("btnEntrar").onclick = async ()=>{
@@ -58,31 +77,39 @@ const posicionesPredeterminadas = {
 };
 
 function filtrarJugadores(tab) {
-  const cont = document.getElementById("jugadoresLateral");
   const cancha = document.getElementById("canchaContainer");
-  cont.innerHTML = "";
+  const cont = document.getElementById("jugadoresLateral");
   cancha.innerHTML = "";
+  cont.innerHTML = "";
 
-  todosJugadores.filter(j => j.tab === tab).forEach(j => {
+  // Filtrar por pestaña
+  const jugadoresTab = todosJugadores.filter(j => j.tab === tab);
+
+  // Crear fichas en el lateral
+  jugadoresTab.forEach(j => {
     const div = document.createElement("div");
     div.className = "jugador";
-    div.draggable = true;
-    div.dataset.nombre = j.nombre;
     div.innerHTML = `
       <img src="escudos/${j.escudo}" alt="${j.club}"
-           onerror="this.onerror=null;this.src='escudos/default_logo.png';">
-      <span>${j.nombre}</span>
-    `;
+           onerror="this.onerror=null; this.src='escudos/default_logo.png';">
+      <span>${j.nombre}</span>`;
     cont.appendChild(div);
+  });
 
-    // Si el jugador tiene una posición predefinida, ubicarlo automáticamente
-    if (j.posicion && posicionesPredeterminadas[j.posicion]) {
-      const pos = posicionesPredeterminadas[j.posicion];
-      const jugadorClone = div.cloneNode(true);
-      jugadorClone.style.position = "absolute";
-      jugadorClone.style.left = pos.x + "px";
-      jugadorClone.style.top = pos.y + "px";
-      cancha.appendChild(jugadorClone);
+  // Colocar automáticamente en la cancha según posición
+  jugadoresTab.forEach(j => {
+    const coords = posicionesPredef[j.posicion];
+    if (coords) {
+      const nodo = document.createElement("div");
+      nodo.className = "jugador";
+      nodo.style.position = "absolute";
+      nodo.style.left = coords.left + "px";
+      nodo.style.top = coords.top + "px";
+      nodo.innerHTML = `
+        <img src="escudos/${j.escudo}" alt="${j.club}"
+             onerror="this.onerror=null; this.src='escudos/default_logo.png';">
+        <span>${j.nombre}</span>`;
+      cancha.appendChild(nodo);
     }
   });
 
