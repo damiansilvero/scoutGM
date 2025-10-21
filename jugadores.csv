@@ -1,20 +1,37 @@
-nombre,club,escudo,tab
-Nouhou Tolo,Seattle Sounders,seattle_sounders_logo.png,libres
-Brandt Bronico,Charlotte,charlotte_logo.png,libres
-Eduard Atuesta,Orlando City,orlando_city_logo.png,libres
-César Araújo,Orlando City,orlando_city_logo.png,libres
-Sebastián Berhalter,Vancouver Whitecaps,vancouver_whitecaps_logo.png,libres
-Will Trapp,Minnesota United,minnesota_united_logo.png,libres
-Ian Fray,Inter Miami,inter_miami_logo.png,libres
-Franco Escobar,Houston Dynamo,houston_dynamo_logo.png,libres
-Nathan Harriel,Philadelphia Union,philadelphia_union_logo.png,libres
-Griffin Dorsey,Houston Dynamo,houston_dynamo_logo.png,libres
-Elías Báez,San Lorenzo,san_lorenzo_logo.png,sub22
-Alexandro Maidana,Guaraní,guarani_logo.png,sub22
-Lucas Quintana,Cerro Porteño,cerro_porteno_logo.png,sub22
-Simón García,Atlético Nacional,atletico_nacional_logo.png,sub22
-Tomás Jacob,Necaxa,necaxa_logo.png,sub22
-Kevin Jappert,Barracas Central,barracas_central_logo.png,sub22
-Roman Gómez,Estudiantes,estudiantes_lp_logo.png,sub22
-Vicente Álvarez,Unión San Felipe,union_san_felipe_logo.png,sub22
-Gustavo Herrera,Saprissa,saprissa_logo.png,sub22
+nombre,club,escudo,tab,posicion
+Nouhou Tolo,Seattle Sounders,seattle_sounders_logo.png,libres,LI
+Brandt Bronico,Charlotte,charlotte_logo.png,libres,MCI
+Eduard Atuesta,Orlando City,orlando_city_logo.png,libres,MCD
+César Araújo,Orlando City,orlando_city_logo.png,libres,MCD
+Sebastián Berhalter,Vancouver Whitecaps,vancouver_whitecaps_logo.png,libres,MC
+Will Trapp,Minnesota United,minnesota_united_logo.png,libres,MC
+Ian Fray,Inter Miami,inter_miami_logo.png,libres,LD
+Franco Escobar,Houston Dynamo,houston_dynamo_logo.png,libres,LD
+Nathan Harriel,Philadelphia Union,philadelphia_union_logo.png,libres,LD
+Griffin Dorsey,Houston Dynamo,houston_dynamo_logo.png,libres,ED
+Elías Báez,San Lorenzo,san_lorenzo_logo.png,sub22,LI
+Alexandro Maidana,Guaraní,guarani_logo.png,sub22,LI
+Lucas Quintana,Cerro Porteño,cerro_porteno_logo.png,sub22,CDD
+Simón García,Atlético Nacional,atletico_nacional_logo.png,sub22,CDD
+Tomás Jacob,Necaxa,necaxa_logo.png,sub22,CDD
+Kevin Jappert,Barracas Central,barracas_central_logo.png,sub22,CDD
+Roman Gómez,Estudiantes,estudiantes_lp_logo.png,sub22,LD
+Vicente Álvarez,Unión San Felipe,union_san_felipe_logo.png,sub22,ED
+Gustavo Herrera,Saprissa,saprissa_logo.png,sub22,DC
+Julián Araujo,Bournemouth,bournemouth_logo.png,prestamo,LD
+Nicolás Domínguez,Nottingham Forest,nottingham_forest_logo.png,prestamo,MCI
+Uriel Antuna,Tigres,tigres_logo.png,prestamo,ED
+Yaser Asprilla,Girona,girona_logo.png,prestamo,ED
+Mateusz Bogusz,Cruz Azul,cruz_azul_logo.png,prestamo,MCI
+Gastón Hernández,San Lorenzo,san_lorenzo_logo.png,compra,CDD
+Agustín Cardozo,Lanús,lanus_logo.png,compra,MC
+Vicente Pizarro,Colo Colo,colo_colo_logo.png,compra,MCI
+Jonatan Silva,Johor Darul,johor_darul_logo.png,jun26,LI
+Guido Rodríguez,West Ham,west_ham_logo.png,jun26,MC
+Jefferson Lerma,Crystal Palace,crystal_palace_logo.png,jun26,MC
+Matías Vecino,Lazio,lazio_logo.png,jun26,MCI
+Junior Alonso,Atlético Mineiro,atletico_mineiro_logo.png,dic26,CDF
+Enzo Giménez,Rosario Central,rosario_central_logo.png,dic25,LD
+Ignacio Fernández,River Plate,river_plate_logo.png,dic25,MCI
+Martín Luciano,Newell’s Old Boys,newells_logo.png,dic25,LI
+Maximiliano Silvera,Peñarol,penarol_logo.png,dic25,DC
