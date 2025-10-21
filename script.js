@@ -115,26 +115,31 @@ function activarDrag(){
   restaurarPosiciones();
 }
 
-function guardarPosiciones(){
-  const pos=[];
-  document.querySelectorAll("#canchaContainer .jugador").forEach(j=>{
-    pos.push({html:j.outerHTML,left:j.style.left,top:j.style.top});
+function guardarPosiciones() {
+  const tabActiva = document.querySelector(".tab.active").dataset.tab;
+  const pos = [];
+  document.querySelectorAll("#canchaContainer .jugador").forEach(j => {
+    pos.push({ html: j.outerHTML, left: j.style.left, top: j.style.top });
   });
-  localStorage.setItem("posiciones",JSON.stringify(pos));
+  localStorage.setItem(`posiciones_${tabActiva}`, JSON.stringify(pos));
 }
-function restaurarPosiciones(){
-  const cancha=document.getElementById("canchaContainer");
-  const pos=JSON.parse(localStorage.getItem("posiciones")||"[]");
-  cancha.innerHTML="";
-  pos.forEach(p=>{
-    const d=document.createElement("div");
-    d.innerHTML=p.html;
-    const j=d.firstChild;
-    j.style.position="absolute";
-    j.style.left=p.left; j.style.top=p.top;
+
+function restaurarPosiciones() {
+  const cancha = document.getElementById("canchaContainer");
+  const tabActiva = document.querySelector(".tab.active").dataset.tab;
+  const pos = JSON.parse(localStorage.getItem(`posiciones_${tabActiva}`) || "[]");
+  cancha.innerHTML = "";
+  pos.forEach(p => {
+    const d = document.createElement("div");
+    d.innerHTML = p.html;
+    const j = d.firstChild;
+    j.style.position = "absolute";
+    j.style.left = p.left;
+    j.style.top = p.top;
     cancha.appendChild(j);
   });
 }
+
 
 document.getElementById("resetBtn").onclick=()=>{
   localStorage.removeItem("posiciones");
