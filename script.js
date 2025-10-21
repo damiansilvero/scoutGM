@@ -48,7 +48,10 @@ function filtrarJugadores(tab){
     div.className="jugador";
     div.draggable=true;
     div.dataset.nombre=j.nombre;
-    div.innerHTML=`<img src="escudos/${j.escudo}" alt="${j.club}"><span>${j.nombre}</span>`;
+    div.innerHTML = `<img src="escudos/${j.escudo}" alt="${j.club}"
+			onerror="this.onerror=null; this.src='escudos/default_logo.png';"><span>${j.nombre}</span>
+		    `;
+
     cont.appendChild(div);
   });
   activarDrag();
