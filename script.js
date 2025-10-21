@@ -142,6 +142,8 @@ function activarDrag(){
   restaurarPosiciones();
 }
 
+// --------- Guardar y restaurar posiciones (por pestaña) ---------
+
 function guardarPosiciones() {
   const tabActiva = document.querySelector(".tab.active").dataset.tab;
   const pos = [];
@@ -154,7 +156,17 @@ function guardarPosiciones() {
 function restaurarPosiciones() {
   const cancha = document.getElementById("canchaContainer");
   const tabActiva = document.querySelector(".tab.active").dataset.tab;
-  const pos = JSON.parse(localStorage.getItem(`posiciones_${tabActiva}`) || "[]");
+  const clave = `posiciones_${tabActiva}`;
+  const guardadas = localStorage.getItem(clave);
+
+  // Si no hay guardadas, usar las posiciones automáticas del CSV
+  if (!guardadas || guardadas === "[]") {
+    console.log(`No hay posiciones guardadas para ${tabActiva}. Usando layout automático.`);
+    return; // El layout automático ya lo genera filtrarJugadores()
+  }
+
+  // Si hay posiciones guardadas, restaurarlas
+  const pos = JSON.parse(guardadas);
   cancha.innerHTML = "";
   pos.forEach(p => {
     const d = document.createElement("div");
@@ -165,6 +177,7 @@ function restaurarPosiciones() {
     j.style.top = p.top;
     cancha.appendChild(j);
   });
+  console.log(`Posiciones restauradas para ${tabActiva}`);
 }
 
 
